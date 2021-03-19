@@ -17,13 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
+//Admin Template Load 
 Route::get('/admin/login', [App\Http\Controllers\AdminController::class, 'ShowAdminLoginForm'])->name('admin.login');
 
 Route::get('/admin/register', [App\http\Controllers\AdminController::class, 'ShowAdminRegister'])->name('admin.register');
 
 Route::get('/admin/dashboard', [App\http\Controllers\AdminController::class, 'ShowAdminDashboard'])->name('admin.dashboard');
+
+Route::post('admin/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('admin.login');
