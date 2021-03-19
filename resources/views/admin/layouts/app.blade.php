@@ -53,6 +53,7 @@
 		
 		<!-- Custom JS -->
 		<script src="{{ asset('admin/assets/js/script.js') }}"></script>
+		<script src="{{ asset('admin/assets/comet/custom.js') }}"></script>
 		
     </body>
 
