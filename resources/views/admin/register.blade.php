@@ -15,18 +15,19 @@
 							<p class="account-subtitle">Access to our dashboard</p>
 							
 							<!-- Form -->
-							<form action="https://doccure-html.dreamguystech.com/template/admin/login.html">
+							<form action="{{ route('admin.register') }}" method="POST">
+								@csrf
 								<div class="form-group">
-									<input class="form-control" type="text" placeholder="Name">
+									<input name="name" class="form-control" type="text" placeholder="Name">
 								</div>
 								<div class="form-group">
-									<input class="form-control" type="text" placeholder="Email">
+									<input name="email" class="form-control" type="text" placeholder="Email">
 								</div>
 								<div class="form-group">
-									<input class="form-control" type="text" placeholder="Password">
+									<input name="password" class="form-control" type="text" placeholder="Password">
 								</div>
 								<div class="form-group">
-									<input class="form-control" type="text" placeholder="Confirm Password">
+									<input name="password_confirmation" class="form-control" type="text" placeholder="Confirm Password">
 								</div>
 								<div class="form-group mb-0">
 									<button class="btn btn-primary btn-block" type="submit">Register</button>

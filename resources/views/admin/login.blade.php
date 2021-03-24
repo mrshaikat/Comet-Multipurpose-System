@@ -21,6 +21,12 @@
 
 									<div class="form-group">
 										<input name="login_data" class="form-control" type="text" placeholder="Email / Cell / Username">
+
+										@error('login_data')
+										<span class="invalid-feedback" role="alert">
+											<strong>{{ $message }}</strong>
+										</span>
+										@enderror
 									</div>
 									<div class="form-group">
 										<input name="password" class="form-control" type="password" placeholder="Password">
