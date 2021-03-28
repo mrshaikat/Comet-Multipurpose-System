@@ -171,6 +171,8 @@
 						@method('PUT')
 						<div class="form-group">
 							<input id="focus_remove" name="category_name" class=" form-control" type="text" placeholder="Category Name">
+
+							<input id="focus_remove" name="edit_id" class=" form-control" type="hidden" placeholder="">
 						</div>
 	 
 					   

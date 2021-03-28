@@ -87,7 +87,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $edit_id = $request->edit_id;
+        $edit_data = Category::find($edit_id);
+
+        $edit_data->name = $request->category_name;
+        $edit_data->slug = Str::slug($request->category_name);
+
+        $edit_data->update();
+
+        return redirect()->back()->with('success', 'Category updated successfully');
     }
 
     /**

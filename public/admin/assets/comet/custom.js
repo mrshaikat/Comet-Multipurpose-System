@@ -60,6 +60,7 @@
                 url : 'category/' +id+ '/edit',
                 success : function(data){
                     $('#edit_category_modal form input[name="category_name"]').val(data.name);
+                    $('#edit_category_modal form input[name="edit_id"]').val(data.id);
                     $('#edit_category_modal').modal('show');
                 }
             });
