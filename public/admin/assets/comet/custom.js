@@ -34,7 +34,7 @@
         });
 
 
-        //Delete Button Fix
+        //Delete Button Category Fix
         $(document).on('click', '#cat_deleted', function(){
  
             let conf = confirm('Are You Sure ?');
@@ -45,6 +45,24 @@
                 return false;
             }
 
+        });
+
+
+        //Edit Category 
+
+        $(document).on('click', '#edit_cat', function(e){
+            e.preventDefault();
+
+            let id = $(this).attr('edit_cat_id');
+            
+
+            $.ajax({
+                url : 'category/' +id+ '/edit',
+                success : function(data){
+                    $('#edit_category_modal form input[name="category_name"]').val(data.name);
+                    $('#edit_category_modal').modal('show');
+                }
+            });
         });
 
 

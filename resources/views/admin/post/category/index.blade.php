@@ -21,9 +21,9 @@
 					
 					<h3 class="page-title">Category</h3>
 					<ul class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-						<li class="breadcrumb-item"><a href="javascript:(0);">Post</a></li>
-						<li class="breadcrumb-item active">Add Category</li>
+						<li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="{{ route('post.index') }}">Post</a></li>
+						<li class="breadcrumb-item active">Category</li>
 					</ul>
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 					<div class="card">
 						<div class="card-header">
 							<h4 class="card-title">All Category
-								<a class="btn btn-primary btn-sm pull-right" href="#category_modal" data-toggle="modal"><i class="fas fa-plus mr-1"></i> Add Category</a>
+								<a class="btn btn-primary btn-sm pull-right" href="#add_category_modal" data-toggle="modal"><i class="fas fa-plus mr-1"></i> Add Category</a>
 							</h4>
 					
 						</div>
@@ -81,9 +81,11 @@
 												<div class="actions">
 
 												
-													<a class="btn btn-sm bg-success-light" data-toggle="modal" href="#edit_specialities_details">
+													<a id="edit_cat" edit_cat_id="{{ $data -> id }}" class="btn btn-sm bg-success-light" data-toggle="modal" href="#">
 														<i class="fe fe-pencil"></i> Edit
 													</a>
+
+
 
 													<form class="d-inline" action="{{ route('category.destroy', $data -> id) }}" method="POST">
 														@csrf
@@ -118,36 +120,72 @@
 	<!-- /Main Wrapper -->
 
 
-	{{-- Modal --}}
-
+	{{-- Add Category Modal START--}}
+	<div id="add_category_modal" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content p-2">
+				<div class=" modal-header">
+					<h3 class=" modal-title">Add New Category</h3>
+					
+					
 	
-<div id="category_modal" class="modal fade">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-2">
-            <div class=" modal-header">
-                <h3 class=" modal-title">Add New Category</h3>
-                
-                
+					<button class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form action="{{ route('category.store') }}" method="POST">
+						@csrf
+						<div class="form-group">
+							<input id="focus_remove" name="category_name" class=" form-control" type="text" placeholder="Category Name">
+						</div>
+	 
+					   
+	
+						<div class="submit-section">
+							<button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Add Category</button>
+						</div>
+	
+					</form>
+				</div>
+			   
+			</div>
+		</div>
+	</div>
+	{{-- Add Category Modal End--}}
 
-                <button class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class=" modal-body">
-                <form action="{{ route('category.store') }}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <input id="focus_remove" name="category_name" class=" form-control" type="text" placeholder="Category Name">
-                    </div>
- 
-                   
 
-                    <div class="submit-section">
-						<button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Add Category</button>
-					</div>
 
-                </form>
-            </div>
-           
-        </div>
-    </div>
-</div>
+	{{-- Edit Category Modal START--}}
+	<div id="edit_category_modal" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content p-2">
+				<div class=" modal-header">
+					<h3 class=" modal-title">Edit Category</h3>
+					
+					
+	
+					<button class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class=" modal-body">
+					<form action="{{ route('category.update', $data  -> id) }}" method="POST">
+						@csrf
+						@method('PUT')
+						<div class="form-group">
+							<input id="focus_remove" name="category_name" class=" form-control" type="text" placeholder="Category Name">
+						</div>
+	 
+					   
+	
+						<div class="submit-section">
+							<button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Update Category</button>
+						</div>
+	
+					</form>
+				</div>
+			   
+			</div>
+		</div>
+	</div>
+	{{-- Edit Category Modal END--}}
+	
+
 @endsection
