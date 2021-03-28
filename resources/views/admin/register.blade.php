@@ -23,6 +23,11 @@
 								<div class="form-group">
 									<input name="email" class="form-control" type="text" placeholder="Email">
 								</div>
+
+								<div class="form-group">
+									<input name="phone_number" class="form-control" type="text" placeholder="Phone Number">
+								</div>
+
 								<div class="form-group">
 									<input name="password" class="form-control" type="text" placeholder="Password">
 								</div>

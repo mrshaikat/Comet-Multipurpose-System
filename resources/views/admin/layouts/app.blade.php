@@ -5,7 +5,7 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Doccure - Login</title>
+        <title>Comet Multipurpose Dev</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/assets/img/favicon.png') }}">
@@ -16,13 +16,23 @@
 		<!-- Fontawesome CSS -->
         <link rel="stylesheet" href="{{ asset('admin/assets/css/font-awesome.min.css') }}">
 
+        <!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="{{ asset('admin/assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('admin/assets/plugins/fontawesome/css/all.min.css') }}">
+
         <!-- Feathericon CSS -->
         <link rel="stylesheet" href="{{ asset('admin/assets/css/feathericon.min.css') }}">
 		
 		<link rel="stylesheet" href="{{ asset('admin/assets/plugins/morris/morris.css') }}">
 		
+        <!-- Datatables CSS -->
+		<link rel="stylesheet" href="{{ asset('admin/assets/plugins/datatables/datatables.min.css') }}">
+
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+
+        {{-- Sweetalert --}}
+        <script src="{{ asset('admin/assets/js/sweetalert.min.js') }}"></script>
 		
 		<!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.min.js"></script>
@@ -50,12 +60,19 @@
 		<script src="{{ asset('admin/assets/plugins/raphael/raphael.min.js') }}"></script>    
 		<script src="{{ asset('admin/assets/plugins/morris/morris.min.js') }}"></script>  
 		<script src="{{ asset('admin/assets/js/chart.morris.js') }}"></script>
+
+
+        <!-- Datatables JS -->
+		<script src="{{ asset('admin/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+		<script src="{{ asset('admin/assets/plugins/datatables/datatables.min.js') }}"></script>
 		
+        
+
 		<!-- Custom JS -->
 		<script src="{{ asset('admin/assets/js/script.js') }}"></script>
 		<script src="{{ asset('admin/assets/comet/custom.js') }}"></script>
 		
     </body>
 
-
+   
 </html>

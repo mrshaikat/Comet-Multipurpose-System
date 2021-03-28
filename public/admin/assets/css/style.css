@@ -2541,7 +2541,7 @@ html.menu-opened body {
     border-radius: 50px;
     font-size: 18px;
     font-weight: 600;
-    min-width: 200px;
+    min-width: 100px;
     padding: 10px 20px;
 }
 
@@ -4639,4 +4639,14 @@ table.table-inbox tbody tr.checked {
 	.page-header .breadcrumb {
 		display: none;
 	}
+
+	.sidebar-menu ul ul a.active {
+		color: #20e3ff;
+		text-decoration: underline;
+	}
+
+
+
+
+	
 }

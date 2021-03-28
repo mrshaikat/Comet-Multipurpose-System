@@ -31,3 +31,16 @@ Route::get('/admin/dashboard', [App\http\Controllers\AdminController::class, 'Sh
 Route::post('admin/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('admin.login');
 Route::post('admin/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('admin.logout');
 Route::post('admin/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('admin.register');
+
+
+//Posts
+//resource Controller
+Route::resource('post', 'App\Http\Controllers\PostController');
+
+//Category Controller
+//Resource Controller
+Route::resource('category', 'App\Http\Controllers\CategoryController');
+
+//Category Status Inactive
+Route::get('category/status-inactive/{id}', 'App\Http\Controllers\CategoryController@StatusUpdateInactive');
+Route::get('category/status-active/{id}', 'App\Http\Controllers\CategoryController@StatusUpdateactive');
