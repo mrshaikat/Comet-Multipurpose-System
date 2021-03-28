@@ -34,6 +34,20 @@
         });
 
 
+        //Delete Button Fix
+        $(document).on('click', '#cat_deleted', function(){
+ 
+            let conf = confirm('Are You Sure ?');
+
+            if(conf == true){
+                return true;
+            }else{
+                return false;
+            }
+
+        });
+
+
 
 
 

@@ -93,7 +93,7 @@
 											<div class="col"><a href="edit-blog.html" class="text-success"><i class="far fa-edit"></i> Edit</a></div>
 
 
-											<div class="col text-middle"><a href="javascript:void(0);" class="text-danger" data-toggle="modal" data-target="#deleteNotConfirmModal"><i class="far fa-trash-alt"></i> Delete</a></div>
+											<div class="col text-center"><a href="javascript:void(0);" class="text-danger" data-toggle="modal" data-target="#deleteNotConfirmModal"><i class="far fa-trash-alt"></i> Delete</a></div>
 
 
 
@@ -120,7 +120,24 @@
 													</div>
 												</li>
 												<li><i class="far fa-clock"></i> 4 Dec 2019</li>
+
+												
 											</ul>
+
+											<div class="row pt-2 pb-2">
+												<div class="col"><a class="text-info"> Category sadfa adfsdf</a></div>
+	
+	
+												<div class="col text-right"><a class="text-warning">akdfska asdjfka a akdfja lajsdf </a></div>
+	
+	
+	
+	
+												
+											</div>
+
+
+
 											<h3 class="blog-title"><a href="#">Doccure – Making your clinic painless visit?</a></h3>
 											<p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
 										</div>
@@ -128,7 +145,7 @@
 											<div class="col"><a href="edit-blog.html" class="text-success"><i class="far fa-edit"></i> Edit</a></div>
 
 
-											<div class="col text-middle"><a href="javascript:void(0);" class="text-danger" data-toggle="modal" data-target="#deleteNotConfirmModal"><i class="far fa-trash-alt"></i> Delete</a></div>
+											<div class="col text-center"><a href="javascript:void(0);" class="text-danger" data-toggle="modal" data-target="#deleteNotConfirmModal"><i class="far fa-trash-alt"></i> Delete</a></div>
 
 
 
@@ -139,7 +156,6 @@
 									<!-- /Blog Post -->
 									
 								</div>
-
 
 
 
@@ -158,7 +174,24 @@
 													</div>
 												</li>
 												<li><i class="far fa-clock"></i> 4 Dec 2019</li>
+
+												
 											</ul>
+
+											<div class="row pt-2 pb-2">
+												<div class="col"><a class="text-info"> Category sadfa adfsdf</a></div>
+	
+	
+												<div class="col text-right"><a class="text-warning">akdfska asdjfka a akdfja lajsdf </a></div>
+	
+	
+	
+	
+												
+											</div>
+
+
+
 											<h3 class="blog-title"><a href="#">Doccure – Making your clinic painless visit?</a></h3>
 											<p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
 										</div>
@@ -166,7 +199,7 @@
 											<div class="col"><a href="edit-blog.html" class="text-success"><i class="far fa-edit"></i> Edit</a></div>
 
 
-											<div class="col text-middle"><a href="javascript:void(0);" class="text-danger" data-toggle="modal" data-target="#deleteNotConfirmModal"><i class="far fa-trash-alt"></i> Delete</a></div>
+											<div class="col text-center"><a href="javascript:void(0);" class="text-danger" data-toggle="modal" data-target="#deleteNotConfirmModal"><i class="far fa-trash-alt"></i> Delete</a></div>
 
 
 
@@ -177,6 +210,8 @@
 									<!-- /Blog Post -->
 									
 								</div>
+
+								
 
 
 								

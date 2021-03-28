@@ -70,12 +70,12 @@
 											<td>{{ date('F d Y', strtotime($data -> created_at)) }}</td>
 											<td>
 											
-											
 
-	<div class="status-toggle">
-		<input type="checkbox" status_id="{{ $data -> id }}" {{ ($data -> status == true ? 'checked="checked"' : '' ) }} id="cat_status_{{ $loop -> index+1 }}" class="check cat_check">
-		<label for="cat_status_{{ $loop -> index+1 }}" class="checktoggle">checkbox</label>
-	</div>
+											<div class="status-toggle">
+												<input type="checkbox" status_id="{{ $data -> id }}" {{ ($data -> status == true ? 'checked="checked"' : '' ) }} id="cat_status_{{ $loop -> index+1 }}" class="check cat_check">
+												<label for="cat_status_{{ $loop -> index+1 }}" class="checktoggle">checkbox</label>
+											</div>
+
 											</td>
 											<td>
 												<div class="actions">
@@ -84,9 +84,15 @@
 													<a class="btn btn-sm bg-success-light" data-toggle="modal" href="#edit_specialities_details">
 														<i class="fe fe-pencil"></i> Edit
 													</a>
-													<a data-toggle="modal" href="#delete_modal" class="btn btn-sm bg-danger-light">
-														<i class="fe fe-trash"></i> Delete
-													</a>
+
+													<form class="d-inline" action="{{ route('category.destroy', $data -> id) }}" method="POST">
+														@csrf
+														@method('DELETE')
+														<button id="cat_deleted" class="btn btn-sm bg-danger-light">
+															<i class="fe fe-trash"></i> Delete
+														</button>
+													</form>
+
 												</div>
 											</td>
 										</tr>
