@@ -21,8 +21,6 @@ Route::get('/', function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Admin Template Load 
-
-
 Route::get('/admin/login', [App\Http\Controllers\AdminController::class, 'ShowAdminLoginForm'])->name('admin.login');
 
 Route::get('/admin/register', [App\http\Controllers\AdminController::class, 'ShowAdminRegister'])->name('admin.register');
@@ -33,14 +31,24 @@ Route::post('admin/logout', [App\Http\Controllers\Auth\LoginController::class, '
 Route::post('admin/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('admin.register');
 
 
-//Posts
+//Posts Controller 
 //resource Controller
 Route::resource('post', 'App\Http\Controllers\PostController');
 
 //Category Controller
 //Resource Controller
 Route::resource('category', 'App\Http\Controllers\CategoryController');
-
-//Category Status Inactive
+//Category Status Inactive Custom Method
 Route::get('category/status-inactive/{id}', 'App\Http\Controllers\CategoryController@StatusUpdateInactive');
-Route::get('category/status-active/{id}', 'App\Http\Controllers\CategoryController@StatusUpdateactive');
+//Category Status Active Custom Method
+Route::get('category/status-active/{id}', 'App\Http\Controllers\CategoryController@StatusUpdateActive');
+
+
+
+//Tag Controller
+//Resource Controller
+Route::resource('tag', 'App\Http\Controllers\TagController');
+//Tag Status Inactive Custom Method
+Route::get('tag/status-inactive/{id}', 'App\Http\Controllers\TagController@StatusUpdateInactive');
+//Tag Status Active Custom Method
+Route::get('tag/status-active/{id}', 'App\Http\Controllers\TagController@StatusUpdateActive');

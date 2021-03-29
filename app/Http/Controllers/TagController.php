@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = Category::all();
-        return view('admin.post.category.index', [
+        $data = Tag::all();
+        return view('admin.post.tag.index', [
             'all_data' => $data
         ]);
     }
@@ -40,15 +40,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => ['required', 'unique:categories'],
+            'name' => ['required', 'unique:tags'],
         ]);
 
-        Category::create([
+        Tag::create([
             'name'  => $request->name,
             'slug'  => Str::slug($request->name),
         ]);
 
-        return redirect()->route('category.index')->with('success', 'Category added successfully');
+        return redirect()->route('tag.index')->with('success', 'Tag added successfully');
     }
 
     /**
@@ -70,7 +70,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $edit_data  =  Category::find($id);
+        $edit_data  =  Tag::find($id);
 
         return [
             'id' => $edit_data->id,
@@ -88,14 +88,14 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $edit_id = $request->edit_id;
-        $edit_data = Category::find($edit_id);
+        $edit_data = Tag::find($edit_id);
 
-        $edit_data->name = $request->category_name;
-        $edit_data->slug = Str::slug($request->category_name);
+        $edit_data->name = $request->name;
+        $edit_data->slug = Str::slug($request->name);
 
         $edit_data->update();
 
-        return redirect()->back()->with('success', 'Category updated successfully');
+        return redirect()->back()->with('success', 'Tag updated successfully');
     }
 
     /**
@@ -106,20 +106,21 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $delete_data = Category::find($id);
+        $delete_data = Tag::find($id);
         $delete_data->delete();
 
-        return redirect()->back()->with('success', 'Category deleted successfully');
+        return redirect()->back()->with('success', 'Tag deleted successfully');
     }
 
+
     /**
-     * Category Inactive Status
+     * Tag Inactive Status
      */
 
     public function StatusUpdateInactive($id)
     {
 
-        $status_update = Category::find($id);
+        $status_update = Tag::find($id);
 
         $status_update->status = false;
         $status_update->update();
@@ -127,13 +128,13 @@ class CategoryController extends Controller
 
 
     /**
-     * Category Active Status
+     * Tag Active Status
      */
 
     public function StatusUpdateActive($id)
     {
 
-        $status_update = Category::find($id);
+        $status_update = Tag::find($id);
 
         $status_update->status = true;
         $status_update->update();

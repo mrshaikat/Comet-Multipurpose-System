@@ -52,9 +52,9 @@
 									<thead>
 										<tr>
 											<th>SL</th>
-											<th>Category</th>
+											<th>Category Name</th>
 											<th>Slug</th>
-											<th>Tag</th>
+											<th>Tag Name</th>
 											<th>Date</th>
 											<th>Status</th>
 											<th>Action</th>
@@ -125,7 +125,7 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content p-2">
 				<div class=" modal-header">
-					<h3 class=" modal-title">Add New Category</h3>
+					<h3 class="modal-title">Add New Category</h3>
 					
 					
 	
@@ -135,7 +135,7 @@
 					<form action="{{ route('category.store') }}" method="POST">
 						@csrf
 						<div class="form-group">
-							<input id="focus_remove" name="category_name" class=" form-control" type="text" placeholder="Category Name">
+							<input id="focus_remove" name="name" class=" form-control" type="text" placeholder="Category Name">
 						</div>
 	 
 					   
