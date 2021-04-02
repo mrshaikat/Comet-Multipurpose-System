@@ -53,6 +53,12 @@
 						<li> 
 							<a href="settings.html"><i class="fe fe-vector"></i> <span>Settings</span></a>
 						</li>
+
+					
+
+
+
+
 					{{-- Multi Pages Menu --}}
 						{{-- <li class="submenu">
 							<a href="javascript:void(0);"><i class="fe fe-code"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>

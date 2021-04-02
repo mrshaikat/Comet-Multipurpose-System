@@ -2537,12 +2537,20 @@ html.menu-opened body {
 	text-align: center;
 	margin-top: 40px;
 }
-.submit-btn {
+.submit-btn-modal {
     border-radius: 50px;
     font-size: 18px;
     font-weight: 600;
-    min-width: 100px;
+    min-width: 130px;
     padding: 10px 20px;
+}
+.submit-btn{
+	
+border-radius: 50px;
+font-size: 18px;
+font-weight: 600;
+min-width: 200px;
+padding: 10px 20px;
 }
 
 /*-----------------
@@ -4184,8 +4192,8 @@ table.table-inbox tbody tr.checked {
 .custom-edit-service .upload-wrap li:first-child{
 	margin-left: 0;
 }
-.custom-edit-service .upload-wrap li .upload-images{
-	width: 80px;
+.post-image .upload-wrap li .upload-images{
+	width: 200px;
 	position: relative;
 }
 .custom-edit-service .upload-wrap li img{
@@ -4639,14 +4647,17 @@ table.table-inbox tbody tr.checked {
 	.page-header .breadcrumb {
 		display: none;
 	}
+}
 
-	.sidebar-menu ul ul a.active {
-		color: #20e3ff;
-		text-decoration: underline;
-	}
+.post-image, .post-gallery, .post-audio, .post-video{
 
+	display: none;
+}
 
-
-
-	
+.post-gallery .post_img_gall img{
+	width: 181px;
+	height: 181px;
+	border: 5px solid #FFF;
+	margin: 8px;
+	position: relative;
 }

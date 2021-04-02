@@ -141,7 +141,7 @@
 					   
 	
 						<div class="submit-section">
-							<button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Add Category</button>
+							<button class="btn btn-primary submit-btn-modal" type="submit" name="form_submit" value="submit">Add Category</button>
 						</div>
 	
 					</form>
@@ -178,7 +178,7 @@
 					   
 	
 						<div class="submit-section">
-							<button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Update Category</button>
+							<button class="btn btn-primary submit-btn-modal" type="submit" name="form_submit" value="submit">Update Category</button>
 						</div>
 	
 					</form>

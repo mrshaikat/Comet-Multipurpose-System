@@ -28,11 +28,21 @@
         <!-- Datatables CSS -->
 		<link rel="stylesheet" href="{{ asset('admin/assets/plugins/datatables/datatables.min.css') }}">
 
+        {{-- Select 2 --}}
+        <link rel="stylesheet" href="{{ asset('admin/assets/css/select2.min.css') }}">
+
+
+
+
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
 
+     
+
         {{-- Sweetalert --}}
         <script src="{{ asset('admin/assets/js/sweetalert.min.js') }}"></script>
+
+        
 		
 		<!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.min.js"></script>
@@ -66,6 +76,11 @@
 		<script src="{{ asset('admin/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 		<script src="{{ asset('admin/assets/plugins/datatables/datatables.min.js') }}"></script>
 		
+        {{-- CK Editor --}}
+        <script src="//cdn.ckeditor.com/4.15.1/full/ckeditor.js"></script>
+
+        {{-- Select 2  --}}
+        <script src="{{ asset('admin/assets/js/select2.min.js') }}"></script>
         
 
 		<!-- Custom JS -->

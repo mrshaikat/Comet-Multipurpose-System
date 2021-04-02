@@ -1,6 +1,16 @@
 (function(){
     $(document).ready(function(){
 
+        //Load CK Editor 
+        CKEDITOR.replace('post_editor');
+
+        //Select 2 Load
+        $('#post_tag_select').select2();
+
+
+
+
+
         //Logout Features
         $(document).on('click', '#user_logout_button', function(e){
             e.preventDefault();
@@ -128,6 +138,83 @@
 
 
 
+        
+       //Select Post Format
+       $('#post_format').change(function(){
+
+        let format = $(this).val();
+        
+        if(format=='Image'){
+            $('.post-image').show();
+        }else{
+            $('.post-image').hide();
+        }
+
+        //post gallery
+
+        if(format=='Gallery'){
+            $('.post-gallery').show();
+        }else{
+            $('.post-gallery').hide();
+        }
+
+        if(format== 'Video'){
+            $('.post-video').show();
+        }else{
+            $('.post-video').hide();
+        }
+
+        if(format== 'Audio'){
+            $('.post-audio').show();
+        }else{
+            $('.post-audio').hide();
+        }
+
+       });
+
+
+
+       // Post Img load
+       $('.post_select_img').change(function(e){
+           let img_url = URL.createObjectURL(e.target.files[0]);
+           $('.post_img_load').attr('src', img_url );
+       });
+
+
+
+       // Post Gallery load
+       $('.post_select_gall').change(function(e){
+           let img_gall = '';
+        for(let i = 0; i < e.target.files.length ; i++){
+            let img_url = URL.createObjectURL(e.target.files[i]);
+            img_gall +='<img class="shadow" src="'+img_url+'">';
+        }
+
+        $('.post_img_gall').html(img_gall);
+        });
+      
+
+
+        //Delete Button From Post Trash Fix
+        $(document).on('click', '#post_deleted', function(){
+ 
+            let conf = confirm('Are You Sure ?');
+
+            if(conf == true){
+                return true;
+            }else{
+                return false;
+            }
+
+        });
+
+     
+		
+
+
+
+
+        
 
 
 
