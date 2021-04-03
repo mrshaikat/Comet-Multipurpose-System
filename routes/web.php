@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Frontend Controller 
+Route::get('blog', [App\Http\Controllers\BlogPostController::class, 'showBlogPage']);
+
 // Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
