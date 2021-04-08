@@ -20,6 +20,15 @@ Route::get('/', function () {
 //Frontend Controller 
 Route::get('blog', [App\Http\Controllers\BlogPostController::class, 'showBlogPage']);
 
+// Search Post By Category
+Route::get('category/{slug}', [App\Http\Controllers\BlogPostController::class, 'searchPostByCategory'])->name('search.post.category');
+
+//Search Post By Tag
+Route::get('tag/{slug}', [App\Http\Controllers\BlogPostController::class, 'searchPostByTag'])->name('search.post.tag');
+
+//Search Post By SearchBar
+Route::post('search', [App\Http\Controllers\BlogPostController::class, 'searchPostBySearchBar'])->name('search.post.searchbar');
+
 // Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
