@@ -12,9 +12,9 @@ class BlogPostController extends Controller
      */
     public function showBlogPage()
     {
-        $all_posts = Post::where('status', true)->latest()->paginate(3);
-        return view('frontend.blog', [
-            'all_posts' => $all_posts
+        $data = Post::where('status', true)->where('trash', false)->latest()->paginate(10);
+        return view('frontend.pages.blog', [
+            'all_posts' => $data
         ]);
     }
 }

@@ -58,6 +58,7 @@
 										<tr>
 											<th>SL</th>
 											<th>Title</th>
+											<th>Author</th>
 											<th>Post Type</th>
 											<th>Post Category</th>
 											<th>Post Tag</th>
@@ -76,17 +77,36 @@
 										
 											<td>{{ $loop -> index+1 }}</td>
 											<td>{{ $data -> title }}</td>
+											<td>{{ $data ->user -> name }}</td>
 											<td>
 												{{ $featured_data -> post_type }}
 											</td>
 											
-											<td>{{ $data -> created_at -> diffForHumans() }}</td>
-											<td>{{ $featured_data -> post_type }}</td>
-											<td>{{ $featured_data -> post_type }}</td>
-											<td>
 											
+											<td>
+
+												
+													<ul>
+														@foreach ($data ->categories as $cat)
+														 <li>{{ $cat -> name }}</li>
+														@endforeach
+													</ul>
+											
+
+											</td>
+											<td>
+												<ul>
+													@foreach ($data ->tags as $tag)
+													 <li>{{ $tag -> name }}</li>
+													@endforeach
+												</ul>
+											</td>
+											
+											<td>{{ $data -> created_at -> diffForHumans() }}</td>
+											<td>
 											<div class="status-toggle">
-												<input type="checkbox" status_id="{{ $data -> id }}" {{ ($data -> status == true ? 'checked="checked"' : '' ) }} id="tag_status_{{ $loop -> index+1 }}" class="check tag_check">
+												<input type="checkbox" status_id="{{ $data -> id }}" {{ ($data -> status == true ? 'checked="checked"' : '' ) }} id="tag_status_{{ $loop -> index+1 }}" class="check post_check">
+
 												<label for="tag_status_{{ $loop -> index+1 }}" class="checktoggle">checkbox</label>
 											</div>
 

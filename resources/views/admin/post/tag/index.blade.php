@@ -169,7 +169,7 @@
 					<button class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
-					<form action="{{ route('tag.update', $data -> id) }}" method="POST">
+					<form action="{{ route('tag.update', 1) }}" method="POST">
 						@csrf
 						@method('PUT')
 						<div class="form-group">

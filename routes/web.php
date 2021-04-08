@@ -40,7 +40,10 @@ Route::resource('post', 'App\Http\Controllers\PostController');
 Route::get('post-trash', 'App\Http\Controllers\PostController@postTrashShow')->name('post.trash');
 Route::get('post-trash-update/{id}', 'App\Http\Controllers\PostController@postTrashUpdate')->name('post.trash.update');
 
-
+//Post Status Inactive Custom Method
+Route::get('post/status-inactive/{id}', 'App\Http\Controllers\PostController@StatusUpdateInactive');
+//Post Status Active Custom Method
+Route::get('post/status-active/{id}', 'App\Http\Controllers\PostController@StatusUpdateActive');
 
 
 

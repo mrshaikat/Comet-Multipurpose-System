@@ -208,6 +208,33 @@
 
         });
 
+
+
+         //Category Status
+         $(document).on('click', 'input.post_check', function(){
+
+            let checked = $(this).attr('checked');
+            let status_id = $(this).attr('status_id'); 
+
+            if(checked == 'checked'){
+                $.ajax({
+                    url: 'post/status-inactive/'+ status_id,
+                    success: function(data){
+                        
+                        swal("Inactive", "Status Inactive Successfully", "success");
+                        
+                    }
+                });
+            }else{
+                $.ajax({
+                    url: 'post/status-active/'+ status_id,
+                    success: function(data){
+                        swal("Active", "Status Active Successfully", "success");
+                    }
+                });
+            }
+        });
+
      
 		
 

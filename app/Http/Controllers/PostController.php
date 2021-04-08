@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -17,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::where('trash', false)->get();
+        $data = Post::where('trash', false)->latest()->get();
         $published = Post::where('trash', false)->get()->count();
         $trash = Post::where('trash', true)->get()->count();
         return view('admin.post.index', [
@@ -77,8 +78,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $cat = Category::all();
-        $tag = Tag::all();
+        $cat = Category::where('status', true)->latest()->get();
+        $tag = Tag::where('status', true)->latest()->get();
         return view('admin.post.create', [
             'all_cat'  => $cat,
             'all_tag'  => $tag,
@@ -124,12 +125,31 @@ class PostController extends Controller
 
 
 
+        //Video Link 
+
+        // $youtube_link = $request->post_video;
+        // $vimeo_link = $request->post_video;
+        // $to_arry_youtube = explode(".", $youtube_link);
+        // $to_arry_vimeo = explode("/", $vimeo_link);
+
+
+
+        // if ($to_arry_youtube == 'youtube') {
+        //     $video_link = str_replace('watch?v=', 'embed/', $youtube_link);
+        // } else {
+        //     $video_link = "https://player.vimeo.com/video" . '/' . $to_arry_vimeo[3];
+        // }
+
+
+
+
         $post_featured = [
             'post_type'    => $request->post_type,
             'post_img'    => $unique_file_name,
             'post_gall'    => $gall_images,
+            'post_video'    => str_replace('watch?v=', 'embed/', $request->post_video),
             'post_audio'    => $request->post_audio,
-            'post_video'    => $request->post_video,
+
         ];
 
 
@@ -137,12 +157,18 @@ class PostController extends Controller
 
 
 
-        Post::create([
+
+
+        $post_data = Post::create([
+            'user_id'  => Auth::user()->id,
             'title'  => $request->title,
             'slug'  => Str::slug($request->title),
             'featured'  => json_encode($post_featured),
             'content'  => $request->content,
         ]);
+
+        $post_data->categories()->attach($request->cat);
+        $post_data->tags()->attach($request->tag);
 
         return redirect()->back()->with('success', 'Post added successfully');
     }
@@ -192,5 +218,33 @@ class PostController extends Controller
         $delete_data->delete();
 
         return redirect()->back()->with('success', 'Post deleted Permanently');
+    }
+
+
+    /**
+     * Tag Inactive Status
+     */
+
+    public function StatusUpdateInactive($id)
+    {
+
+        $status_update = Post::find($id);
+
+        $status_update->status = false;
+        $status_update->update();
+    }
+
+
+    /**
+     * Tag Active Status
+     */
+
+    public function StatusUpdateActive($id)
+    {
+
+        $status_update = Post::find($id);
+
+        $status_update->status = true;
+        $status_update->update();
     }
 }

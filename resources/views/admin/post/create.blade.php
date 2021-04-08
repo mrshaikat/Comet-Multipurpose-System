@@ -224,6 +224,7 @@
                                     <label><strong>Post Video Link </strong><span class="text-danger">*</span></label>
                                    
                                     <input class="form-control" type="text" name="post_video" id="" value="">
+                                    <div class="youtube-vimeo">Youtube or Vimeo Link</div>
                                 </div>
                             </div>
                         </div>

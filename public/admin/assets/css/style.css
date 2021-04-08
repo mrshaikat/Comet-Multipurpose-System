@@ -4661,3 +4661,12 @@ table.table-inbox tbody tr.checked {
 	margin: 8px;
 	position: relative;
 }
+
+.youtube-vimeo{
+	    
+	width: 100%;
+	margin-top: .25rem;
+	margin-left: 4px;
+	font-size: 80%;
+	color: #28a745;
+}
