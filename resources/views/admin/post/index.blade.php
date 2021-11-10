@@ -3,27 +3,27 @@
 @section('main-content')
 	<!-- Main Wrapper -->
 	<div class="main-wrapper">
-		
+
 		{{-- Header Topbar --}}
 		@include('admin.layouts.header')
-		
+
 		@include('admin.layouts.menu')
-		
+
 		<!-- Page Wrapper -->
 		<div class="page-wrapper">
-		
+
 			<div class="content container-fluid">
-				
+
 		<!-- Page Header -->
 		<div class="page-header">
 			<div class="row">
 				<div class="col-sm-12">
-					
+
 					<h3 class="page-title">Post
 						<a class="btn btn-danger btn-sm pull-right" href="{{ route('post.trash') }}"><i class="fas fa-trash mr-1"></i> Trash <span class=" badge badge-danger">{{ ($trash_data == 0) ? '' : $trash_data }}</span></a>
 
 						<a class="btn btn-info btn-sm pull-right mr-2" href="{{ route('post.index') }}"><i class="fas fa-eye mr-1"></i> Published <span class=" badge badge-info">{{ ($published_data == 0) ? '' : $published_data }}</span></a>
-						
+
 					</h3>
 					<ul class="breadcrumb">
 						<li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
@@ -34,14 +34,14 @@
 			</div>
 		</div>
 		<!-- /Page Header -->
-				
+
 
 	{{-- Start Post --}}
 	<div class="row">
 		<div class="col-sm-12">
-					
+
 			@include('admin.validate')
-				
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="card">
@@ -49,11 +49,11 @@
 							<h4 class="card-title"><span class="text-info"><i class="fas fa-eye mr-2"></i>All Posts</span>
 								<a class="btn btn-primary btn-sm pull-right" href="{{ route('post.create') }}"><i class="fas fa-plus mr-1"></i> Add Post</a>
 							</h4>
-					
+
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table table-striped mb-0">
+								<table id="post_table" class="table table-striped mb-0">
 									<thead>
 										<tr>
 											<th>SL</th>
@@ -74,24 +74,27 @@
 											@php
 											$featured_data = json_decode($data -> featured);
 											@endphp
-										
+
 											<td>{{ $loop -> index+1 }}</td>
-											<td>{{ $data -> title }}</td>
+											<td>
+                                               {!! Str::of(htmlspecialchars_decode($data->title)) -> words(3) !!}
+
+                                            </td>
 											<td>{{ $data ->user -> name }}</td>
 											<td>
 												{{ $featured_data -> post_type }}
 											</td>
-											
-											
+
+
 											<td>
 
-												
+
 													<ul>
 														@foreach ($data ->categories as $cat)
 														 <li>{{ $cat -> name }}</li>
 														@endforeach
 													</ul>
-											
+
 
 											</td>
 											<td>
@@ -101,7 +104,7 @@
 													@endforeach
 												</ul>
 											</td>
-											
+
 											<td>{{ $data -> created_at -> diffForHumans() }}</td>
 											<td>
 											<div class="status-toggle">
@@ -116,24 +119,24 @@
 											<td>
 												<div class="actions">
 
-												
-													<a id="edit_tag" edit_tag_id="{{ $data -> id }}" class="btn btn-sm bg-success-light" data-toggle="modal" href="#">
+
+													<a class="btn btn-sm bg-success-light" onclick="return confirm('Are you sure edit this post?')" href="{{ route('post.edit', $data->id) }}">
 														<i class="fe fe-pencil"></i> Edit
 													</a>
 
-													<a class="btn btn-sm bg-danger-light" href="{{ route('post.trash.update', $data -> id) }}">
+													<a class="btn btn-sm bg-danger-light ml-1" onclick="return confirm('Are you sure delete this post?')" href="{{ route('post.trash.update', $data -> id) }}">
 														<i class="fe fe-trash"></i> Delete
 													</a>
 
 
 
-													
+
 
 												</div>
 											</td>
 										</tr>
 										@endforeach
-										
+
 									</tbody>
 								</table>
 							</div>
@@ -142,14 +145,14 @@
 				</div>
 			</div>
 			{{-- End Data Table Datatable --}}
-		
-	</div>			
+
+	</div>
 </div>
 			{{-- End Post --}}
-</div>			
+</div>
 </div>
 		<!-- /Page Wrapper -->
-	
+
 </div>
 	<!-- /Main Wrapper -->
 
@@ -160,9 +163,9 @@
 			<div class="modal-content p-2">
 				<div class=" modal-header">
 					<h3 class=" modal-title">Add New Tag</h3>
-					
-					
-	
+
+
+
 					<button class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -171,16 +174,16 @@
 						<div class="form-group">
 							<input id="focus_remove" name="name" class=" form-control" type="text" placeholder="Tag Name">
 						</div>
-	 
-					   
-	
+
+
+
 						<div class="submit-section">
 							<button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Add Tag</button>
 						</div>
-	
+
 					</form>
 				</div>
-			   
+
 			</div>
 		</div>
 	</div>
@@ -194,9 +197,9 @@
 			<div class="modal-content p-2">
 				<div class=" modal-header">
 					<h3 class="modal-title">Edit Tag</h3>
-					
-					
-	
+
+
+
 					<button class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -208,20 +211,20 @@
 
 							<input id="focus_remove" name="edit_id" class=" form-control" type="hidden" placeholder="">
 						</div>
-	 
-					   
-	
+
+
+
 						<div class="submit-section">
 							<button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Update Tag</button>
 						</div>
-	
+
 					</form>
 				</div>
-			   
+
 			</div>
 		</div>
 	</div>
 	{{-- Edit Category Modal END--}}
-	
+
 
 @endsection

@@ -20,6 +20,24 @@ class BlogPostController extends Controller
         ]);
     }
 
+
+    public function showSingleBlogPage(Request $request, $slug)
+    {
+        $all_data = Post::where('slug', $slug)->first();
+
+        //View Count
+
+        $this->viewCount($all_data->id);
+
+        // foreach ($all_data->categories as $cat) {
+        //     $data_category = $cat->name;
+        // }
+        return view('frontend.pages.blog-single', [
+            'data' => $all_data,
+
+        ]);
+    }
+
     /**
      * Search Post By Category
      */
@@ -32,6 +50,9 @@ class BlogPostController extends Controller
         ]);
     }
 
+    /**
+     * Search Post By Tags
+     */
     public function searchPostByTag($slug)
     {
         $search_tag = Tag::where('slug', $slug)->where('status', true)->first();
@@ -40,6 +61,10 @@ class BlogPostController extends Controller
             'all_tag_search' => $search_tag
         ]);
     }
+
+    /**
+     * Search Post By SearchBar
+     */
 
     public function searchPostBySearchBar(Request $request)
     {
@@ -50,5 +75,18 @@ class BlogPostController extends Controller
         return view('frontend.pages.searchbar', [
             'posts'  => $all_posts
         ]);
+    }
+
+    /**
+     * Single Post Count
+     */
+
+    private function viewCount($post_id)
+    {
+
+        $post_view_count = Post::find($post_id);
+        $old_views = $post_view_count->post_views;
+        $post_view_count->post_views = $old_views + 1;
+        $post_view_count->update();
     }
 }

@@ -3,10 +3,10 @@
 			<div class="sidebar-inner slimscroll">
 				<div id="sidebar-menu" class="sidebar-menu">
 					<ul>
-						<li class="menu-title"> 
+						<li class="menu-title">
 							<span>Main</span>
 						</li>
-						<li class="active"> 
+						<li class="active">
 							<a href="{{ route('admin.dashboard') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 						</li>
                         <li class="submenu">
@@ -15,17 +15,17 @@
 								<li><a href="{{ route('post.index') }}"> Posts </a></li>
 								<li><a href="{{ route('category.index') }}"> Category</a></li>
 								<li><a href="{{ route('tag.index') }}"> Tag </a></li>
-							
+
 							</ul>
 						</li>
 
                         <li class="submenu">
 							<a href="#"><i class="fe fe-document"></i> <span> Product </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="blog.html"> Product </a></li>
-								<li><a href="blog-details.html"> Category</a></li>
-								<li><a href="add-blog.html"> Tag </a></li>
-								<li><a href="edit-blog.html"> Brand </a></li>
+								<li><a href="{{ route('product.index') }}"> Product </a></li>
+								<li><a href="{{ route('product-category.index') }}"> Category</a></li>
+								<li><a href="{{ route('product-tag.index') }}"> Tag </a></li>
+								<li><a href="{{ route('brand.index') }}"> Brand </a></li>
 							</ul>
 						</li>
 
@@ -35,7 +35,7 @@
 								<li><a href="blog.html"> Product </a></li>
 								<li><a href="blog-details.html"> Category</a></li>
 								<li><a href="add-blog.html"> Tag </a></li>
-								<li><a href="edit-blog.html"> Brand </a></li>
+								<li><a href=""> Brand </a></li>
 							</ul>
 						</li>
 
@@ -45,16 +45,16 @@
 								<li><a href="blog.html"> Users </a></li>
 								<li><a href="blog-details.html"> Role</a></li>
 								<li><a href="add-blog.html"> Permission </a></li>
-								
+
 							</ul>
 						</li>
 
-						
-						<li> 
+
+						<li>
 							<a href="settings.html"><i class="fe fe-vector"></i> <span>Settings</span></a>
 						</li>
 
-					
+
 
 
 

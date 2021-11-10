@@ -63,7 +63,11 @@ class PostController extends Controller
 
         $trash_data->update();
 
-        return back();
+        if ($trash_data->trash == false) {
+            return redirect()->back()->with('success', 'Post recovery successfull');
+        } else {
+            return redirect()->back()->with('success', 'Soft delete successfull | You can recover from Trash');
+        }
     }
 
 
@@ -125,7 +129,7 @@ class PostController extends Controller
 
 
 
-        //Video Link 
+        //Video Link
 
         // $youtube_link = $request->post_video;
         // $vimeo_link = $request->post_video;
@@ -147,7 +151,7 @@ class PostController extends Controller
             'post_type'    => $request->post_type,
             'post_img'    => $unique_file_name,
             'post_gall'    => $gall_images,
-            'post_video'    => str_replace('watch?v=', 'embed/', $request->post_video),
+            'post_video'    => $this->getEmbded($request->post_video),
             'post_audio'    => $request->post_audio,
 
         ];
@@ -162,7 +166,7 @@ class PostController extends Controller
         $post_data = Post::create([
             'user_id'  => Auth::user()->id,
             'title'  => $request->title,
-            'slug'  => Str::slug($request->title),
+            'slug'  => $this->getSlug($request->title),
             'featured'  => json_encode($post_featured),
             'content'  => $request->content,
         ]);
@@ -192,7 +196,14 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = Category::where('status', true)->latest()->get();
+        $tag = Tag::where('status', true)->latest()->get();
+        $all_data = Post::find($id);
+        return view('admin.post.edit', [
+            'data' => $all_data,
+            'all_cat'  => $cat,
+            'all_tag'  => $tag,
+        ]);
     }
 
     /**

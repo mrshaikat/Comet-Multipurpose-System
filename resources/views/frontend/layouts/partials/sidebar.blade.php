@@ -18,8 +18,8 @@
           @foreach ($all_cat as $cat)
           <li><a href="{{ route('search.post.category', $cat -> slug) }}">{{ $cat -> name }}</a></li>
           @endforeach
-          
-         
+
+
         </ul>
       </div>
       <!-- end of widget        -->
@@ -33,23 +33,29 @@
           @foreach ($all_tag as $tag)
           <a href="{{ route('search.post.tag', $tag -> slug) }}">{{ $tag -> name }}</a>
           @endforeach
-          
-          
+
+
         </div>
       </div>
       <!-- end of widget      -->
       <div class="widget">
-        <h6 class="upper">Latest Posts</h6>
+        <h6 class="upper">Popular Posts</h6>
         <ul class="nav">
           @php
-          $all_post = App\Models\Post::where('status', true) -> where('trash', false) -> take(5) -> latest() -> get();
+          $all_post = App\Models\Post::where('status', true) -> where('trash', false)->orderBy('post_views', 'DESC')-> take(7) -> latest() -> get();
+
+
           @endphp
 
           @foreach ($all_post as $posts)
-          <li><a href="{{ $posts -> slug }}">{{ $posts -> title }}<i class="ti-arrow-right"></i><span> {{ date('d M Y', strtotime($posts -> created_at)) }} </span></a>
+          <li><a href="{{route('single.blog-view', $posts -> slug)  }}">{{ $posts -> title }} <i class="ti-arrow-right"></i>
+            <br>
+            <span style="display:inline-block;"> {{ date('d M Y', strtotime($posts -> created_at)) }} </span>
+
+            <span style="display:inline-block;"> <span><strong>.</strong></span>read({{ $posts-> post_views}}) </span></a>
           </li>
           @endforeach
-         
+
         </ul>
       </div>
       <!-- end of widget          -->

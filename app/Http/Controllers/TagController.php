@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use datatables;
 use App\Models\Tag;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
@@ -45,7 +46,7 @@ class TagController extends Controller
 
         Tag::create([
             'name'  => $request->name,
-            'slug'  => Str::slug($request->name),
+            'slug'  => $this->getSlug($request->name),
         ]);
 
         return redirect()->route('tag.index')->with('success', 'Tag added successfully');

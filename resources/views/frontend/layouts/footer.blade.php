@@ -99,7 +99,7 @@
                 <a href="#">Services</a>
               </li>
               <li>
-                <a href="#">Blog</a>
+                <a href="{{ route('frontend.blog') }}">Blog</a>
               </li>
               <li>
                 <a href="#">Contact</a>
